@@ -50,7 +50,7 @@
 }
 
 .newsletter-input svg {
-    color: var((--primary));
+    color: var(--primary);
 }
 
 .newsletter-input input {
