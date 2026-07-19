@@ -1,12 +1,4 @@
-import { title } from "framer-motion/client";
-import {
-  FaGlobeAsia,
-  FaWallet,
-  FaShieldAlt,
-  FaHeadset,
-  FaStar,
-  FaRoute,
-} from "react-icons/fa";
+import {FaGlobeAsia,FaWallet,FaShieldAlt,FaHeadset,FaStar,FaRoute,} from "react-icons/fa";
 const features = [
   {
     id: 1,
