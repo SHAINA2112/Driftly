@@ -1,0 +1,18 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #14B8A6;
+    --primary-dark: #0F766E;
+    --primary-light: #99F6E4;
+    --bg-light: #F0FDFA;
+    --text-dark: #1F2937;
+    --text-light: #6B7280;
+    --white: #FFFFFF;
+}
+.main-content {
+    padding-top: 90px;
+}

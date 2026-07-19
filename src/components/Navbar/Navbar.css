@@ -1,0 +1,358 @@
+:root {
+    --primary: #14b8a6;
+    --primary-dark: #0f766e;
+    --primary-light: #99f6e4;
+    --bg-light: #f0fdfa;
+    --text-dark: #1f2937;
+    --text-light: #6b7280;
+    --white: #ffffff;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    padding: 0 6%;
+    z-index: 1000;
+    transition: all .45s ease;
+}
+
+/* Scrolled */
+.navbar.scrolled {
+    width: 92%;
+    max-width: 1380px;
+    padding: 0;
+}
+
+/* Container */
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 84px;
+    transition: all .45s ease;
+}
+
+.navbar.scrolled .navbar-container {
+    height: 76px;
+    padding: 0 28px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .72);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, .35);
+    box-shadow:
+        0 12px 40px rgba(15, 23, 42, .08),
+        0 2px 12px rgba(15, 23, 42, .04);
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.logo img {
+    border: none;
+    width: 160px;
+    height: auto;
+    object-fit: contain;
+    transition: transform .4s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.04);
+}
+
+/* Navigation */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 42px;
+}
+
+.nav-menu ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 8px;
+}
+
+.nav-menu li {
+    position: relative;
+}
+
+/* Links */
+.nav-menu a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px;
+    text-decoration: none;
+    border-radius: 999px;
+    color: var(--text-light);
+    font-size: .96rem;
+    font-weight: 500;
+    letter-spacing: .2px;
+    transition: all .35s ease;
+}
+
+.navbar.scrolled .nav-menu a {
+    color: var(--text-dark);
+}
+
+/* Hover */
+.nav-menu a:hover {
+    transform: translateY(-2px);
+}
+
+.navbar.scrolled .nav-menu a:hover {
+    color: var(--primary);
+}
+
+/* Underline */
+.nav-menu a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 7px;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    border-radius: 10px;
+    background: var(--primary);
+    transition: width .35s ease;
+}
+
+.nav-menu a:hover::after {
+    width: 52%;
+}
+
+/* Active */
+.navbar.scrolled .active-link {
+    color: var(--primary);
+}
+
+.active-link::after {
+    display: flex;
+}
+
+/* Book Button */
+.book-btn {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 30px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: var(--white);
+    font-size: .95rem;
+    font-weight: 600;
+    letter-spacing: .3px;
+    transition: all .35s ease;
+    box-shadow: 0 12px 30px rgba(20, 184, 164, .22);
+}
+
+.book-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 42px rgba(20, 184, 164, .35);
+}
+
+.book-btn:active {
+    transform: scale(.97);
+}
+
+/* Menu Icon */
+.menu-icon {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.25rem;
+    color: var(--white);
+    background: rgba(255, 255, 255, .12);
+    backdrop-filter: blur(20px);
+    transition: all .35s ease;
+}
+
+.navbar.scrolled .menu-icon {
+    color: var(--text-dark);
+    background: rgba(20, 184, 164, .08);
+}
+
+.menu-icon:hover {
+    transform: rotate(90deg);
+}
+
+/* Tablet */
+@media(max-width:992px) {
+    .navbar {
+        top: 18px;
+        padding: 0 5%;
+    }
+
+    .navbar.scrolled {
+        width: 95%;
+    }
+
+    .navbar-container {
+        height: 78px;
+    }
+
+    .navbar.scrolled .navbar-container {
+        padding: 0 22px;
+    }
+
+    .logo img {
+        width: 145px;
+    }
+
+    .menu-icon {
+        display: flex;
+        position: relative;
+        z-index: 1002;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 92px;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 24px;
+        padding: 30px;
+        background: rgba(255, 255, 255, .82);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border: 1px solid rgba(255, 255, 255, .45);
+        border-radius: 28px;
+        box-shadow: 0 30px 60px rgba(15, 23, 42, .12);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-18px);
+        transition: all .4s ease;
+    }
+
+    .nav-menu.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+    }
+
+    .nav-menu li {
+        width: 100%;
+    }
+
+    .nav-menu a {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 16px 18px;
+        border-radius: 16px;
+        color: var(--text-dark);
+    }
+
+    .nav-menu a:hover {
+        background: rgba(20, 184, 164, .08);
+        color: var(--primary);
+    }
+
+    .nav-menu a::after {
+        display: none;
+    }
+
+    .active-link {
+        background: rgba(20, 184, 164, .12);
+    }
+
+    .book-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Mobile */
+@media(max-width:768px) {
+    .navbar {
+        top: 14px;
+    }
+
+    .navbar-container {
+        height: 74px;
+    }
+
+    .logo img {
+        width: 130px;
+    }
+
+    .navbar.scrolled .navbar-container {
+        padding: 0 18px;
+    }
+
+    .nav-menu {
+        top: 86px;
+        padding: 24px;
+    }
+
+    .book-btn {
+        padding: 15px;
+    }
+}
+
+/* Small Mobile */
+@media(max-width:480px) {
+    .navbar {
+        padding: 0 4%;
+    }
+
+    .navbar.scrolled {
+        width: 96%;
+    }
+
+    .navbar-container {
+        height: 70px;
+    }
+
+    .logo img {
+        width: 118px;
+    }
+
+    .menu-icon {
+        width: 46px;
+        height: 46px;
+        font-size: 1.1rem;
+    }
+
+    .nav-menu {
+        top: 82px;
+        padding: 20px;
+        border-radius: 22px;
+    }
+
+    .nav-menu a {
+        padding: 14px 16px;
+        font-size: .92rem;
+    }
+
+    .book-btn {
+        font-size: .9rem;
+    }
+}

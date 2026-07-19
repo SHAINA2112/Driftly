@@ -1,0 +1,140 @@
+.gallery-modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .85);
+    backdrop-filter: blur(10px);
+}
+
+.modal-content {
+    position: relative;
+    width: min(90%, 1000px);
+    background: var(--white);
+    border-radius: 24px;
+    overflow: hidden;
+    z-index: 2;
+    animation: popup .35s ease;
+}
+
+/* Animation  */
+@keyframes popup {
+    from {
+        opacity: 0;
+        transform: scale(.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-content img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+
+.modal-info {
+    padding: 30px;
+}
+
+.modal-info h2 {
+    color: var(--text-dark);
+    margin-bottom: 12px;
+}
+
+.country {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary);
+    margin-bottom: 18px;
+}
+
+.modal-info p {
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(10px);
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: .3s;
+}
+
+.close-btn:hover {
+    background: var(--primary);
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 55px;
+    height: 55px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(10px);
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: .3s;
+}
+
+.prev-btn {
+    left: 20px;
+}
+
+.next-btn {
+    right: 20px;
+}
+
+.nav-btn:hover {
+    background: var(--primary);
+}
+
+@media(max-width:768px) {
+    .modal-content {
+        width: 95%;
+    }
+
+    .modal-content img {
+        height: 350px;
+    }
+
+    .modal-info {
+        padding: 22px;
+    }
+}
+
+@media(max-width:480px) {
+    .modal-content img {
+        height: 250px;
+    }
+
+    .close-btn,
+    .nav-btn {
+        width: 42px;
+        height: 42px;
+    }
+}
